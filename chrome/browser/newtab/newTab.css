@@ -1,0 +1,149 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+:root {
+  -moz-appearance: none;
+  background-color: transparent;
+}
+
+/* SCROLLBOX */
+#newtab-scrollbox:not([page-disabled]) {
+  background-color: rgb(229,229,229);
+  background-image: url(chrome://browser/skin/newtab/noise.png),
+                    -moz-linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.2));
+  background-attachment: fixed;
+}
+
+/* TOGGLE */
+#newtab-toggle {
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: none;
+  background: -216px 0 transparent url(chrome://browser/skin/newtab/controls.png);
+}
+
+#newtab-toggle[page-disabled] {
+  background-position: -232px 0;
+}
+
+/* ROWS */
+.newtab-row {
+  margin-bottom: 15px;
+}
+
+.newtab-row:last-child {
+  margin-bottom: 0;
+}
+
+/* CELLS */
+.newtab-cell {
+  -moz-margin-end: 55px;
+  -moz-transition: border-color 100ms ease-out;
+}
+
+.newtab-cell:empty {
+  border: 1px dashed;
+  border-color: rgba(8,22,37,.15) rgba(8,22,37,.17) rgba(8,22,37,.19);
+}
+
+.newtab-cell:last-child {
+  -moz-margin-end: 0;
+}
+
+
+/* SITES */
+.newtab-site:hover > .newtab-control {
+  -moz-transition-delay: 1s;
+    opacity: 1;
+}
+
+.newtab-site {
+  text-decoration: none;
+  background: -moz-linear-gradient(bottom, transparent 26px, #e3e3e3 1px,#f6f6f6);
+  border-radius: 3px;
+  -moz-transition-property: top, left, opacity, box-shadow, background-color;
+}
+.newtab-thumbnail {
+  box-shadow:0 2px 5px rgba(0,0,0,.3), 0 0 0px #fff inset;
+  border: 1px solid #a7a7a7;
+  margin-bottom:25px;
+  border-radius: 3px;
+  -moz-transition-property: top, left, opacity, box-shadow, background-color;
+}
+
+.newtab-thumbnail:hover,
+.newtab-thumbnail[dragged] {
+  border-color: rgba(8,22,37,.25) rgba(8,22,37,.27) rgba(8,22,37,.3);
+  box-shadow: 0 1px 10px 1px rgba(8,22,37,.3)!important;
+}
+
+.newtab-thumbnail[dragged] {
+  -moz-transition-property: box-shadow, background-color;
+}
+
+/* THUMBNAILS */
+.newtab-thumbnail {
+  background-origin: padding-box;
+  background-clip: padding-box;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+/* TITLES */
+.newtab-title {
+  padding: 0 8px;
+  color: #4d4d4d;
+  font-size: 12px;
+  line-height: 24px;
+  text-align:center;
+  text-shadow:0 1px 0 rgba(255, 255, 255, 0.5)
+}
+/*remove dashed border after clicking*/
+.newtab-link:focus{
+outline:none!important;
+}
+
+/* CONTROLS */
+
+.newtab-control {
+  width: 24px;
+  height: 24px;
+  padding: 1px 2px 3px;
+  border: none;
+  background: transparent url(chrome://browser/skin/newtab/controls.png);
+}
+
+.newtab-control-pin:hover {
+  background-position: -24px 0;
+}
+
+.newtab-control-pin:active {
+  background-position: -48px 0;
+}
+
+.newtab-control-pin[pinned] {
+  background-position: -72px 0;
+}
+
+.newtab-control-pin[pinned]:hover {
+  background-position: -96px 0;
+}
+
+.newtab-control-pin[pinned]:active {
+  background-position: -120px 0;
+}
+
+.newtab-control-block {
+  background-position: -144px 0;
+}
+
+.newtab-control-block:hover {
+  background-position: -168px 0;
+}
+
+.newtab-control-block:active {
+  background-position: -192px 0;
+}

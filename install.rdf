@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+
+  <Description about="urn:mozilla:install-manifest">
+    <em:type>4</em:type>
+    <em:id>{b398db90-5867-11e0-b8af-0800200c9a66}</em:id>
+    <em:version>2.2</em:version>
+
+    <!-- Target Application this extension can install into,
+         with minimum and maximum supported versions. -->
+    <em:targetApplication>
+      <Description>
+        <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+        <em:minVersion>4.0b7</em:minVersion>
+        <em:maxVersion>20.*</em:maxVersion>
+      </Description>
+    </em:targetApplication>
+   
+    <!-- Front End MetaData -->
+    <em:name>elementary Firefox</em:name>
+    <em:description>Firefox for elementaryOS</em:description>
+    <em:creator>Zeeeeee</em:creator>
+    <em:contributor>Based on Elementary Project</em:contributor>
+    <em:internalName>elementary</em:internalName>
+
+  </Description>     
+</RDF>

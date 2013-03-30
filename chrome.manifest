@@ -1,0 +1,9 @@
+skin browser      elementary chrome/browser/
+skin communicator elementary chrome/communicator/
+skin mozapps      elementary chrome/mozapps/
+skin global       elementary chrome/global/
+
+skin os_target    elementary chrome/os_target/common/
+skin os_target    elementary chrome/os_target/linux/ os=Linux
+skin os_target    elementary chrome/os_target/winXP/ os=WINNT osversion<6
+skin os_target    elementary chrome/os_target/win7/ os=WINNT osversion>6

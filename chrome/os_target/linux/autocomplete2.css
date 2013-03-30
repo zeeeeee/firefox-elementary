@@ -1,0 +1,11 @@
+/* ::::: autocomplete popups ::::: */
+
+panel[type="autocomplete"],
+panel[type="autocomplete-richlistbox"],
+.autocomplete-history-popup {
+  margin-top: 0px !important;
+  padding: 0px !important;
+  -moz-window-shadow: none !important;
+  -moz-margin-start:0px !important;
+  background-color: rgb(22,22,22) !important;
+}
