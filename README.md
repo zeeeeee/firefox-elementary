@@ -7,5 +7,5 @@ elementary theme for Firefox based on the Midori browser
 *todo*
 
 ##Credits
-* [zeeeeee](http://zeeeeee.deviantart.com/) for making whole [theme](http://fav.me/d5lpcyw)
+* [zeeeeee](http://zeeeeee.deviantart.com/) for making the whole [theme](http://fav.me/d5lpcyw)
 * [elementary](elementaryos.org) team for UI desiegn and the elementary project
