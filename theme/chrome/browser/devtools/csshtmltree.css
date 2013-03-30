@@ -1,169 +1,96 @@
-/* ***** BEGIN LICENSE BLOCK *****
- * Version: MPL 1.1/GPL 2.0/LGPL 2.1
- *
- * The contents of this file are subject to the Mozilla Public License Version
- * 1.1 (the "License"); you may not use this file except in compliance with
- * the License. You may obtain a copy of the License at
- * http://www.mozilla.org/MPL/
- *
- * Software distributed under the License is distributed on an "AS IS" basis,
- * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
- * for the specific language governing rights and limitations under the
- * License.
- *
- * The Original Code is the Mozilla Inspector Module.
- *
- * The Initial Developer of the Original Code is
- * The Mozilla Foundation.
- * Portions created by the Initial Developer are Copyright (C) 2011
- * the Initial Developer. All Rights Reserved.
- *
- * Contributor(s):
- *   Joe Walker <jwalker@mozilla.com> (original author)
- *   Mihai Șucan <mihai.sucan@gmail.com>
- *   Michael Ratcliffe <mratcliffe@mozilla.com>
- *
- * Alternatively, the contents of this file may be used under the terms of
- * either the GNU General Public License Version 2 or later (the "GPL"), or
- * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
- * in which case the provisions of the GPL or the LGPL are applicable instead
- * of those above. If you wish to allow use of your version of this file only
- * under the terms of either the GPL or the LGPL, and not to allow others to
- * use your version of this file under the terms of the MPL, indicate your
- * decision by deleting the provisions above and replace them with the notice
- * and other provisions required by the GPL or the LGPL. If you do not delete
- * the provisions above, a recipient may use your version of this file under
- * the terms of any one of the MPL, the GPL or the LGPL.
- *
- * ***** END LICENSE BLOCK ***** */
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-body {
-  font-family: sans-serif;
-  font-size: 11px;
-  background: #EEE;
-}
-.path,
-.filters {
-  font-size: 11px;
-  word-spacing: -1px;
-}
-.path ol {
-  list-style: none outside none;
-  margin: 0;
-  padding: 0;
-}
-.path li {
-  border-radius: 3px;
-  padding: 2px 3px;
-  text-shadow: #FFF 0 1px 0;
-  font-weight: bold;
-  font-size: 11px;
-  background: -moz-linear-gradient(top, #F6F6FF, #E3E3FF);
-  display: inline-block;
-}
-.path li:after {
-  content: " > ";
-}
-.path li:last-child {
-  background: -moz-linear-gradient(top, #FFC, #DD8);
-}
-.path li:last-child:after {
-  color: red;
-  content: "";
-}
-
-.property-header {
-  padding: 2px 5px;
-  background: -moz-linear-gradient(top, #F8F8F8, #E8E8E8);
-  color: #666;
-}
-
-.property-name,
-.rule-matched,
-.rule-unmatched {
-  cursor: pointer;
+:root {
+  -moz-appearance: none;
+  background: -moz-Field;
+  color: -moz-FieldText;
 }
 
 /* Take away these two :visited rules to get a core dumper     */
 /* See https://bugzilla.mozilla.org/show_bug.cgi?id=575675#c30 */
-.link {
-  color: #55A;
-}
+.link,
 .link:visited {
-  color: #55A;
+  color: #0091ff;
 }
-a.link {
+.link,
+.helplink,
+.link:visited,
+.helplink:visited {
   text-decoration: none;
-  cursor: pointer;
 }
-a.link:visited {
-  text-decoration: none;
+.link:hover {
+  text-decoration: underline;
 }
 
-.rule-matched,
-.rule-unmatched {
-  padding: 2px 0;
-  white-space: nowrap;
+.helplink {
+  height: 14px;
+  width: 0;
+  overflow: hidden;
+  -moz-padding-start: 14px;
+  background-image: url("chrome://browser/skin/devtools/goto-mdn.png");
+  -moz-margin-end: 2px;
+  cursor: pointer;
+}
+
+.property-view:not(:hover) > .helplink-container {
+  visibility: hidden;
 }
 
 .rulelink {
-  color: #55A;
+  color: -moz-dialogtext;
+  padding: 0;
 }
 
 .expander {
-  width: 8px;
-  height: 8px;
-  float: left;
-  -moz-margin-start: 15px;
-  -moz-margin-end: 5px;
-  margin-top: 3px;
-  background: url("chrome://browser/skin/devtools/arrows.png");
-  background-position: 24px 0;
+  -moz-appearance: treetwisty;
+  padding-top: 12px;
+  -moz-margin-start: 5px;
+  vertical-align: middle;
 }
 
-.searchfield {
-  background: url("chrome://browser/skin/devtools/search.png") no-repeat #FFF;
-  border-radius: 5px;
-  -moz-padding-start: 20px;
-  width: 135px;
-  float: right;
-}
-
-.expander[dir="rtl"] {
-  background-position: 16px 0;
-}
 .expander[open] {
-  background-position: 8px 0;
+  -moz-appearance: treetwistyopen;
+}
+
+.match {
+  visibility: hidden;
+}
+
+.expandable {
+  cursor: pointer;
+  visibility: visible;
+}
+
+.expander-container {
+  vertical-align: text-top;
 }
 
 .property-name {
-  display: inline-block;
-  font-size: 12px;
-  font-weight: bold;
-  color: #000;
-}
-.property-value {
-  display: inline-block;
-  font-size: 10px;
+  padding: 2px 0;
+  color: -moz-FieldText;
 }
 
-.property-view-hidden {
-  display: none;
+.property-value {
+  padding: 0;
+  -moz-padding-end: 6px;
+  color: grey;
+  width: 100%;
 }
 
 .rule-link {
   text-align: end;
   -moz-padding-start: 10px;
+  cursor: pointer;
 }
 
 /* This rule is necessary because Templater.jsm breaks LTR TDs in RTL docs */
 .rule-text {
   direction: ltr;
-  -moz-padding-start: 10px;
-}
-
-.resizerbox {
-  background-color: window;
+  padding: 0;
+  -moz-padding-start: 20px;
+  vertical-align: text-bottom;
 }
 
 .bestmatch {
@@ -175,16 +102,186 @@ a.link:visited {
 .parentmatch {
   color: #666;
 }
-.unmatched {
-  color: brown;
+
+#propertyContainer {
+  border-collapse: collapse;
 }
 
-.userStyles {
-  position: relative;
-  top: 3px;
+.darkrow {
+  background-color: rgba(0,0,0,.022);
 }
 
-.userStyles,
-.userStylesLabel {
+#noResults {
+  font-size: 18px;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.headerControls {
+  color: -moz-dialogtext;
+  background-color: -moz-dialog;
+}
+
+.onlyuserstyles {
   cursor: pointer;
+  font-size: 11px;
+}
+
+#footer {
+  border-top: 1px solid -moz-dialog;
+}
+
+.legendKey {
+  margin: 0 5px;
+}
+
+/**
+ * CSS Rule View
+ */
+
+.ruleview {
+  background-color: white;
+}
+
+.ruleview-rule-source {
+  color: hsl(90,2%,46%); /* grey */
+  -moz-padding-start: 5px;
+  cursor: pointer;
+  text-align: right;
+  float: right;
+  -moz-user-select: -moz-none;
+}
+
+.ruleview-rule-inheritance {
+  background-color: hsl(0,0%,90%);
+  color: hsl(0,0%,50%);
+  border-top: 1px solid hsl(0,0%,65%);
+  border-bottom: 1px solid hsl(0,0%,65%);
+  padding: 1px 4px;
+  margin-top: 4px;
+  -moz-user-select: -moz-none;
+}
+
+.ruleview-rule-source:hover {
+  text-decoration: underline;
+}
+
+.ruleview-rule {
+  padding: 2px 4px;
+}
+
+.ruleview-rule + .ruleview-rule {
+  border-top: 1px dotted #cddae5;
+}
+
+.ruleview-warning {
+  background: url("chrome://browser/skin/devtools/alerticon-warning.png");
+  -moz-margin-start: 5px;
+  vertical-align: middle;
+  width: 13px;
+  height: 12px;
+}
+
+.ruleview-ruleopen {
+  -moz-padding-end: 5px;
+}
+
+.ruleview-ruleclose {
+  cursor: text;
+  padding-right: 20px;
+}
+
+.ruleview-propertylist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ruleview-enableproperty {
+  height: 10px;
+  width: 10px;
+  -moz-margin-start: 1px;
+  -moz-margin-end: 0;
+  transition: opacity 100ms;
+  transition-delay: 200ms;
+}
+
+.ruleview-property:not(:hover) > .ruleview-enableproperty[checked] {
+  opacity: 0;
+  transition: none;
+}
+
+.ruleview-expander {
+  width: 8px;
+  height: 8px;
+  background: url("chrome://browser/skin/devtools/arrows.png") 24px 0;
+  cursor: pointer;
+  -moz-margin-start: 2px;
+  -moz-margin-end: 5px;
+}
+
+.ruleview-expander.styleinspector-open {
+  background-position: 8px 0;
+}
+
+.ruleview-newproperty {
+  /* (enable checkbox width: 12px) + (expander width: 15px) */
+  -moz-margin-start: 27px;
+}
+
+.ruleview-propertyname {
+  padding: 1px 0;
+  color: hsl(276,44%,45%); /* purple */
+}
+
+.ruleview-propertyvalue {
+  padding: 1px 0;
+}
+
+.ruleview-namecontainer,
+.ruleview-propertycontainer,
+.ruleview-propertyname,
+.ruleview-propertyvalue {
+  text-decoration: inherit;
+}
+
+.ruleview-computedlist {
+  list-style: none;
+  padding: 0;
+}
+
+.ruleview-computed {
+  -moz-margin-start: 4em;
+}
+
+.ruleview-overridden {
+  text-decoration: line-through;
+}
+
+.styleinspector-propertyeditor {
+  border: 1px solid #CCC;
+  padding: 0;
+  box-shadow: 2px 2px 2px #CCC;
+}
+
+.ruleview-property {
+  border-left: 2px solid transparent;
+}
+
+.ruleview-property[dirty] {
+  border-left-color: #68E268;
+}
+
+.ruleview-namecontainer > .ruleview-propertyname,
+.ruleview-propertycontainer > .ruleview-propertyvalue {
+  border-bottom: 1px dashed transparent;
+}
+
+.ruleview-namecontainer:hover > .ruleview-propertyname,
+.ruleview-propertycontainer:hover > .ruleview-propertyvalue {
+  border-bottom-color: hsl(0,0%,50%);
+}
+
+.ruleview-selector-separator, .ruleview-selector-unmatched {
+  color: #888;
 }
