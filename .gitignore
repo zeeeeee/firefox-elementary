@@ -1,0 +1,6 @@
+# packages
+*.jar
+*.xpi
+
+# editors
+*.sublime-*
