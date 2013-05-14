@@ -566,6 +566,17 @@ menuitem:not([type]):not(.menuitem-tooltip):not(.menuitem-iconic-tooltip) {
 .toolbarbutton-1:not([type="menu-button"]) {
 padding:2px;
 }
+.toolbarbutton-1:not([type="menu-button"]):active:hover {
+-moz-appearance:none!important;
+background-image:-moz-linear-gradient(bottom, rgba(185,185,185,1), rgba(165,165,165,1));
+border:1px solid #999999!important;
+-moz-border-top-colors: #777!important;
+-moz-border-left-colors: #888!important;
+-moz-border-right-colors: #888!important;
+border-radius:3px!important;
+box-shadow: 0 1px 0 rgba(255,255,255,.35),
+                 0px 1px 2px 0px rgba(150,150,150,.40) inset!important;
+}
 
 .toolbarbutton-1:not([disabled="true"]):hover{
 padding:1px;
@@ -1254,7 +1265,7 @@ border:none!important;
 .popup-notification-icon[popupid="password-change"] {
   list-style-image: url(chrome://mozapps/skin/passwordmgr/key-64.png);
 }
-
+/***!ver isto para a resolução da cor da url em caso de password ou avisos!***/
 /* Notification icon box */
 #notification-popup-box {
   position: relative;
