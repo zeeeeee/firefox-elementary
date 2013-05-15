@@ -2152,8 +2152,15 @@ margin: 4px!important;
 }*/
 
 /* Status panel */
-
 .statuspanel-label {
+  margin: 3px;
+  padding: 4px 7px;
+  background: rgba(0,0,0,.65);
+  color: white;
+  border-radius:3px;
+  text-shadow: 0 1px 0 rgba(0,0,0,.4);
+}
+/*.statuspanel-label {
   margin: 0;
   padding: 2px 4px;
   background: -moz-linear-gradient(white, #ddd);
@@ -2175,7 +2182,7 @@ margin: 4px!important;
   border-left-style: solid;
   border-top-left-radius: .3em;
   margin-left: 1em;
-}
+}*/
 
 /*** Dev Tools ***/
 
