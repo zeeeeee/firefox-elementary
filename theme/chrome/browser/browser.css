@@ -2026,6 +2026,14 @@ padding: 0px 0px 0px 0px!important;
 list-style-image:url("chrome://browser/skin/CompactMenu16.png")!important;
 }
 
+#TabsToolbar > #appmenu-toolbar-button,
+#TabsToolbar > #appmenu-toolbar-button:hover,
+#TabsToolbar > #appmenu-toolbar-button:active {
+margin:2px!important;
+padding:2px!important;
+padding-right:0!important;
+}
+
 #appmenu-toolbar-button:hover:not([open]) {
 -moz-appearance:none!important;
 padding: 0 0 0 2px !important;
