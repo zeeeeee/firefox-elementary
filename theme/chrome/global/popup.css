@@ -42,9 +42,10 @@
 
 menupopup,
 panel {
-  -moz-appearance: menupopup;
-  min-width: 1px;
-  color: MenuText;
+/*  -moz-appearance: menupopup;*/
+  
+min-width: 1px;
+  color: red;
 }
 menupopup {
   -moz-appearance:none!important;
