@@ -1546,7 +1546,7 @@ list-style-image:url("chrome://browser/skin/close.png")!important;
 .tabs-newtab-button,
 #TabsToolbar > #new-tab-button,
 #TabsToolbar > #wrapper-new-tab-button > #new-tab-button {
-  margin: 0 5px 0 5px;
+  margin: 0 4px 0 5px;
   list-style-image: url(chrome://browser/skin/newtab.png);
   border: 1px solid transparent;
   -moz-image-region: auto;
@@ -1555,7 +1555,7 @@ list-style-image:url("chrome://browser/skin/close.png")!important;
 #TabsToolbar > #new-tab-button:hover{
   border:1px solid #7a7a7a!important;
   box-shadow: inset 0 0 0 1px #9e9e9e, 0 1px 0 rgba(255,255,255,.20)!important;
-  margin: 4px 7px 3px 7px!important;
+  margin: 4px 6px 3px 7px!important;
   padding: 0 0 0 0!important;
   background: #ababab!important;
   border-radius: 2.5px!important;
@@ -2020,9 +2020,9 @@ list-style-image:url("chrome://browser/skin/CompactMenu24.png")!important;
 }
 
 toolbar[iconsize="small"] #appmenu-toolbar-button {
--moz-appearance:none;
-margin: 3px 0 3px 0!important;
-padding: 0px 0px 0px 0px!important;
+-moz-appearance:none!important;
+/*margin: 3px 0 3px 0!important;
+padding: 0px 0px 0px 0px!important;*/
 list-style-image:url("chrome://browser/skin/CompactMenu16.png")!important;
 }
 
