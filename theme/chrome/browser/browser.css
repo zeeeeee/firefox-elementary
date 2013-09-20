@@ -1271,8 +1271,8 @@ border:none!important;
 /* Notification icon box */
 #notification-popup-box {
   position: relative;
-/*  background-color: none;*/
-  background-image: url("chrome://browser/skin/back2.png");
+  background-color: none;
+/*  background-image: url("chrome://browser/skin/back2.png");*/
   background-clip: padding-box;
   padding-left: 5px;
   padding-right: 2px;
@@ -1289,7 +1289,7 @@ border:none!important;
   /*
   list-style-image: url(chrome://browser/skin/notification-pluginNormal.png);
   */
-  list-style-image: url(chrome://browser/skin/plugin.png);
+  list-style-image: url(chrome://browser/skin/plugin.svg);
 }
 #notification-popup-box:not([hidden]) + #identity-box {
   -moz-padding-start: 7px;
