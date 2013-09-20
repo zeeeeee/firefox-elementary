@@ -48,7 +48,7 @@ splitter {
   -moz-appearance: none;
 width:8px;
 background:url("chrome://browser/skin/dimple.png") no-repeat center center,
--moz-linear-gradient(right, #dfdfdf, #fbfbfb)!important; 
+-moz-linear-gradient(right, #dfdfdf, #fbfbfb); 
 border-right: 1px solid #9f9f9f;
 border-left: 1px solid #b1b1b1;
   border-top:1px solid rgba(0,0,0,0.1);
@@ -75,7 +75,7 @@ splitter[state="collapsed"][substate="before"]:-moz-locale-dir(rtl) {
 
 splitter[orient="vertical"] {
 background:url("chrome://browser/skin/dimple.png") no-repeat center center,
--moz-linear-gradient(bottom, #dfdfdf, #fbfbfb)!important; 
+-moz-linear-gradient(bottom, #dfdfdf, #fbfbfb); 
 border:none;
 border-bottom: 1px solid #9f9f9f;
 border-top: 1px solid #b1b1b1;

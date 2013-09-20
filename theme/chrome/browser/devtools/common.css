@@ -3,14 +3,26 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+/* Font for code */
+
+:root {
+  font: message-box;
+}
+
+.devtools-monospace {
+  font-family: monospace;
+  font-size: 85%;
+}
+
 /* Toolbar and Toolbar items */
 
 .devtools-toolbar {
   -moz-appearance: none;
   padding: 4px 3px;
-  box-shadow: 0 1px 0 0 hsla(210, 16%, 76%, .2) inset;
-  background: -moz-linear-gradient(top, hsl(210,11%,36%), hsl(210,11%,18%));
   color: hsl(210,30%,85%);
+  background-image: url(background-noise-toolbar.png), linear-gradient(#3e4750, #3e4750);
+  border-bottom: 1px solid #060a0d;
+  box-shadow: 0 1px 0 hsla(204,45%,98%,.05) inset, -1px 0 0 hsla(204,45%,98%,.05) inset, 0 -1px 0 hsla(204,45%,98%,.05) inset;
 }
 
 .devtools-menulist,
@@ -22,7 +34,7 @@
   text-shadow: 0 -1px 0 hsla(210,8%,5%,.45);
   border: 1px solid hsla(210,8%,5%,.45);
   border-radius: 3px;
-  background: -moz-linear-gradient(hsla(212,7%,57%,.35), hsla(212,7%,57%,.1)) padding-box;
+  background: linear-gradient(hsla(212,7%,57%,.35), hsla(212,7%,57%,.1)) padding-box;
   box-shadow: 0 1px 0 hsla(210,16%,76%,.15) inset, 0 0 0 1px hsla(210,16%,76%,.15) inset, 0 1px 0 hsla(210,16%,76%,.15);
   margin: 0 3px;
   color: inherit;
@@ -34,26 +46,30 @@
 
 .devtools-menulist:-moz-focusring,
 .devtools-toolbarbutton:-moz-focusring {
-  outline: 1px dotted hsla(210,30%,85%,0.4);
-  outline-offset: -4px;
+  outline: 1px dotted hsla(210,30%,85%,0.7)!important;
+  outline-offset: -4px!important;
 }
 
 .devtools-toolbarbutton:not([label]) {
   min-width: 32px;
 }
 
+.devtools-toolbarbutton:not([label]) > .toolbarbutton-text {
+  display: none;
+}
+
 .devtools-toolbarbutton:not([checked=true]):hover:active {
-  border-color: hsla(210,8%,5%,.6);
-  background: -moz-linear-gradient(hsla(220,6%,10%,.3), hsla(212,7%,57%,.15) 65%, hsla(212,7%,57%,.3));
-  box-shadow: 0 0 3px hsla(210,8%,5%,.25) inset, 0 1px 3px hsla(210,8%,5%,.25) inset, 0 1px 0 hsla(210,16%,76%,.15);
+  border-color: hsla(210,8%,5%,.6)!important;
+  background: linear-gradient(hsla(220,6%,10%,.3), hsla(212,7%,57%,.15) 65%, hsla(212,7%,57%,.3))!important;
+  box-shadow: 0 0 3px hsla(210,8%,5%,.25) inset, 0 1px 3px hsla(210,8%,5%,.25) inset, 0 1px 0 hsla(210,16%,76%,.15)!important;
 }
 
 .devtools-menulist[open=true],
 .devtools-toolbarbutton[open=true],
 .devtools-toolbarbutton[checked=true] {
   border-color: hsla(210,8%,5%,.6) !important;
-  background: -moz-linear-gradient(hsla(220,6%,10%,.6), hsla(210,11%,18%,.45) 75%, hsla(210,11%,30%,.4));
-  box-shadow: 0 1px 3px hsla(210,8%,5%,.25) inset, 0 1px 3px hsla(210,8%,5%,.25) inset, 0 1px 0 hsla(210,16%,76%,.15);
+  background: linear-gradient(hsla(220,6%,10%,.6), hsla(210,11%,18%,.45) 75%, hsla(210,11%,30%,.4))!important;
+  box-shadow: 0 1px 3px hsla(210,8%,5%,.25) inset, 0 1px 3px hsla(210,8%,5%,.25) inset, 0 1px 0 hsla(210,16%,76%,.15)!important;
 }
 
 .devtools-toolbarbutton[checked=true] {
@@ -73,7 +89,7 @@
   list-style-image: url("chrome://browser/skin/devtools/option-icon.png");
   -moz-image-region: rect(0px 16px 16px 0px);
   background: none;
-  border: none;
+  border: none!important;
 }
 
 .devtools-option-toolbarbutton[open=true] {
@@ -114,28 +130,36 @@
   -moz-appearance: none !important;
   list-style-image: url("chrome://browser/skin/devtools/dropmarker.png");
   -moz-box-align: center;
-  margin: 0 3px;
+  padding: 0 3px;
 }
 
-/* Search input */
+/* Text input */
 
+.devtools-textinput,
 .devtools-searchinput {
-  -moz-appearance: none;
-  margin: 0 3px;
-  border: 1px solid hsla(210,8%,5%,.6);
-  border-radius: 2px;
-  background-color: transparent;
-  background-image: url(magnifying-glass.png), -moz-linear-gradient(hsla(210,16%,76%,.15), hsla(210,16%,76%,.35));
-  background-repeat: no-repeat;
-  background-position: 4px center, top left, top left;
-  padding-top: 0;
-  padding-bottom: 0;
-  -moz-padding-start: 18px;
-  -moz-padding-end: 12px;
+  -moz-appearance: none!important;
+  margin: 0 3px!important;
+  min-height: 22px!important;
+  border: 1px solid hsla(210,8%,5%,.6)!important;
+  border-radius: 2px!important;
+  background-color: transparent!important;
+  background-image: linear-gradient(hsla(210,16%,76%,.15), hsla(210,16%,76%,.35))!important;
+  padding: 3px!important;
   box-shadow: 0 1px 1px hsla(210,8%,5%,.3) inset,
               0 0 0 1px hsla(210,16%,76%,.1) inset,
-              0 1px 0 hsla(210,16%,76%,.15);
-  color: inherit;
+              0 1px 0 hsla(210,16%,76%,.15)!important;
+  color: inherit!important;
+}
+
+.devtools-searchinput {
+  padding-top: 0!important;
+  padding-bottom: 0!important;
+  -moz-padding-start: 18px!important;
+  -moz-padding-end: 12px!important;
+  background-image: url(magnifying-glass.png), linear-gradient(hsla(210,16%,76%,.15), hsla(210,16%,76%,.35))!important;
+  background-position: 4px center, top left, top left!important;
+  background-repeat: no-repeat!important;
+  font-size: inherit!important;
 }
 
 .devtools-searchinput:-moz-locale-dir(rtl) {
@@ -151,12 +175,22 @@
   opacity: 1.0;
 }
 
+.devtools-no-search-result {
+  box-shadow: inset 0 0 0 1px hsla(0,68%,6%,.35);
+  border-color: hsl(10,70%,40%) hsl(10,75%,37%) hsl(10,80%,35%) !important;
+  background-image: url(magnifying-glass.png), linear-gradient(hsla(1,16%,76%,.45), hsla(1,16%,76%,.75));
+}
+
 /* Close button */
 
 .devtools-closebutton {
-  list-style-image: url("moz-icon://stock/gtk-close?size=menu");
-  margin-top: 0;
-  margin-bottom: 0;
+  list-style-image: url("chrome://browser/skin/devtools/close.png");
+  -moz-appearance: none;
+  border: none;
+  margin: 0 4px;
+  min-width: 16px;
+  width: 16px;
+  opacity: 0.6;
 }
 
 .devtools-closebutton > .toolbarbutton-icon {
@@ -165,55 +199,260 @@
   margin: -4px;
 }
 
+.devtools-closebutton > .toolbarbutton-text {
+  display: none;
+}
+
+.devtools-closebutton:hover {
+  opacity: 0.8;
+}
+
+.devtools-closebutton:hover:active {
+  opacity: 1;
+}
+
 /* Splitters */
 
 .devtools-horizontal-splitter {
-  -moz-appearance: none;
-  border-top: 1px solid black;
-  border-bottom-width: 0;
-  min-height: 3px;
-  height: 3px;
-  margin-bottom: -3px;
-  position: relative;
+  -moz-appearance: none!important;
+background:none!important;
+  border-top: 1px solid black!important;
+  border-bottom-width: 0!important;
+  min-height: 3px!important;
+  height: 3px!important;
+  margin-bottom: -3px!important;
+  position: relative!important;
 }
 
 .devtools-side-splitter {
+  -moz-appearance: none!important;
+background:none!important;
+  border: 0!important;
+  -moz-border-start: 1px solid black!important;
+  min-width: 0!important;
+  width: 3px!important;
+  background-color: transparent!important;
+  -moz-margin-end: -3px!important;
+  position: relative!important;
+  cursor: e-resize!important;
+}
+
+/* In-tools sidebar */
+
+.devtools-toolbox-side-iframe {
+  min-width: 465px;
+}
+
+.devtools-sidebar-tabs {
   -moz-appearance: none;
+  margin: 0;
+}
+
+.devtools-sidebar-tabs > tabpanels {
+  -moz-appearance: none;
+  padding: 0;
   border: 0;
-  -moz-border-start: 1px solid black;
-  min-width: 0;
-  width: 3px;
+}
+
+.devtools-sidebar-tabs > tabs {
+  -moz-appearance: none;
+  position: static;
+  color: hsl(210,30%,85%);
+  margin-bottom: 0;
+  padding: 0;
+  background-image: url(background-noise-toolbar.png), linear-gradient(#3e4750, #3e4750);
+  box-shadow: 0 1px 0 hsla(204,45%,98%,.05) inset, -1px 0 0 hsla(204,45%,98%,.05) inset, 0 -1px 0 hsla(204,45%,98%,.05) inset;
+  border-width: 0 0 1px 0;
+  border-color: hsla(210,8%,5%,.6);
+  border-style: solid;
+  overflow: hidden;
+}
+
+.devtools-sidebar-tabs > tabs > .tabs-right,
+.devtools-sidebar-tabs > tabs > .tabs-left {
+  display: none;
+}
+
+.devtools-sidebar-tabs > tabs > tab {
+  -moz-appearance: none;
+  /* We want to match the height of a toolbar with a toolbarbutton
+   * First, we need to replicated the padding of toolbar (4px),
+   * then, the padding of the button itself from toolbarbutton.css (3px),
+   * Also, we need to take the border of the buttons into accout (1px).
+   * Padding-bottom is one pixel shorter because we need to include the
+   * black border.
+   */
+  padding: 8px 3px 7px;
+  -moz-padding-start: 6px;
+  margin: 0;
+  min-width: 78px;
+  text-shadow: 0 -1px 0 hsla(210,8%,5%,.45);
+  text-align: center;
+  color: inherit;
+  -moz-box-flex: 1;
+  border-width: 0;
+  background: transparent;
+  border-radius: 0;
+  position: static;
+  -moz-margin-start: -1px;
+}
+
+.devtools-sidebar-tabs > tabs > tab:first-of-type {
+  -moz-margin-start: -3px;
+}
+
+.devtools-sidebar-tabs > tabs > tab {
+  background-size: 100% 100%, 1px 100%, 1px 100%, 1px 100%;
+  background-repeat: no-repeat;
+  background-position: 2px, 0, 1px, 2px;
+}
+
+.devtools-sidebar-tabs:-moz-locale-dir(rtl) > tabs > tab {
+  background-position: calc(100% - 3px), 100%, calc(100% - 1px), calc(100% - 2px);
+}
+
+
+.devtools-sidebar-tabs > tabs > tab {
+  background-image: linear-gradient(transparent, transparent), linear-gradient(hsla(204,45%,98%,0), hsla(204,45%,98%,.1), hsla(204,45%,98%,0)), linear-gradient(hsla(206,37%,4%,0), hsla(206,37%,4%,.6), hsla(206,37%,4%,0)), linear-gradient(hsla(204,45%,98%,0), hsla(204,45%,98%,.1), hsla(204,45%,98%,0));
+}
+
+.devtools-sidebar-tabs > tabs > tab:hover {
+  background-image: linear-gradient(hsla(206,37%,4%,.2), hsla(206,37%,4%,.2)), linear-gradient(hsla(204,45%,98%,0), hsla(204,45%,98%,.1), hsla(204,45%,98%,0)), linear-gradient(hsla(206,37%,4%,0), hsla(206,37%,4%,.6), hsla(206,37%,4%,0)), linear-gradient(hsla(204,45%,98%,0), hsla(204,45%,98%,.1), hsla(204,45%,98%,0));
+}
+
+.devtools-sidebar-tabs > tabs > tab:hover:active {
+  background-image: linear-gradient(hsla(206,37%,4%,.4), hsla(206,37%,4%,.4)), linear-gradient(hsla(204,45%,98%,0), hsla(204,45%,98%,.1), hsla(204,45%,98%,0)), linear-gradient(hsla(206,37%,4%,0), hsla(206,37%,4%,.6), hsla(206,37%,4%,0)), linear-gradient(hsla(204,45%,98%,0), hsla(204,45%,98%,.1), hsla(204,45%,98%,0));
+}
+
+.devtools-sidebar-tabs > tabs > tab[selected=true] + tab {
+  background-image: linear-gradient(transparent, transparent), linear-gradient(transparent, transparent), linear-gradient(hsla(206,37%,4%,.6), hsla(206,37%,4%,.7)), linear-gradient(hsla(204,45%,98%,.1), hsla(204,45%,98%,.1));
+}
+
+.devtools-sidebar-tabs > tabs > tab[selected=true] + tab:hover {
+  background-image: linear-gradient(hsla(206,37%,4%,.2), hsla(206,37%,4%,.2)), linear-gradient(transparent, transparent), linear-gradient(hsla(206,37%,4%,.6), hsla(206,37%,4%,.7)), linear-gradient(hsla(204,45%,98%,.1), hsla(204,45%,98%,.1));
+}
+
+.devtools-sidebar-tabs > tabs > tab[selected=true] + tab:hover:active {
+  background-image: linear-gradient(hsla(206,37%,4%,.4), hsla(206,37%,4%,.4)), linear-gradient(transparent, transparent), linear-gradient(hsla(206,37%,4%,.6), hsla(206,37%,4%,.7)), linear-gradient(hsla(204,45%,98%,.1), hsla(204,45%,98%,.1));
+}
+
+.devtools-sidebar-tabs > tabs > tab[selected=true] {
+  color: #f5f7fa;
+  background-image: linear-gradient(#2f607b, #294d68), linear-gradient(transparent, transparent), linear-gradient(hsla(206,37%,4%,.6), hsla(206,37%,4%,.7)), linear-gradient(hsla(204,45%,98%,.1), hsla(204,45%,98%,.1));
+  box-shadow: 0 1px 0 hsla(0,0%,100%,.1) inset, 0 -2px 0 hsla(206,37%,4%,.05) inset, 0 -1px 1px hsla(206,37%,4%,.1) inset;
+}
+
+.devtools-sidebar-tabs > tabs > tab[selected=true]:hover {
+  background-image: linear-gradient(#274f64, #224056), linear-gradient(transparent, transparent), linear-gradient(hsla(206,37%,4%,.6), hsla(206,37%,4%,.7)), linear-gradient(hsla(204,45%,98%,.1), hsla(204,45%,98%,.1));
+  box-shadow: 0 1px 0 hsla(0,0%,100%,.05) inset, 0 -2px 0 hsla(206,37%,4%,.05) inset, 0 -1px 1px hsla(206,37%,4%,.1) inset;
+}
+
+.devtools-sidebar-tabs > tabs > tab[selected=true]:hover:active {
+  background-image: linear-gradient(#1f3e4f, #1b3243), linear-gradient(transparent, transparent), linear-gradient(hsla(206,37%,4%,.6), hsla(206,37%,4%,.7)), linear-gradient(hsla(204,45%,98%,.1), hsla(204,45%,98%,.1));
+  box-shadow: 0 1px 0 hsla(0,0%,100%,.05) inset, 0 -2px 0 hsla(206,37%,4%,.05) inset, 0 -1px 1px hsla(206,37%,4%,.1) inset;
+}
+
+
+/* Autocomplete Popup */
+/* Dark and light theme */
+
+.devtools-autocomplete-popup {
+  -moz-appearance: none !important;
+  border: 1px solid hsl(210,11%,10%);
+  box-shadow: 0 1px 0 hsla(209,29%,72%,.25) inset;
   background-color: transparent;
-  -moz-margin-end: -3px;
-  position: relative;
+  background-image: linear-gradient(to bottom, hsla(209,18%,18%,0.9), hsl(210,11%,16%));
+  border-radius: 3px;
+  max-height: 40rem;
 }
 
-/* Theme */
-
-.devtools-theme-background {
-  background-color: white;
+.devtools-autocomplete-listbox {
+  -moz-appearance: none !important;
+  background-color: transparent;
+  border-width: 0px !important;
 }
 
-.devtools-theme-comment {
-  color: hsl(90,2%,46%); /* grey */
+.devtools-autocomplete-listbox > richlistitem,
+.devtools-autocomplete-listbox > richlistitem[selected] {
+  width: 100%;
+  background-color: transparent;
+  border-radius: 4px;
 }
 
-.devtools-theme-keyword {
-  color: hsl(276,44%,45%); /* purple */
+.devtools-autocomplete-listbox.dark-theme > richlistitem[selected],
+.devtools-autocomplete-listbox.dark-theme > richlistitem:hover {
+  background-color: rgba(0,0,0,0.5);
 }
 
-.devtools-theme-string {
-  color: hsl(72,100%,27%); /* green */
+.devtools-autocomplete-listbox.dark-theme > richlistitem[selected] > .autocomplete-value,
+.devtools-autocomplete-listbox:focus.dark-theme > richlistitem[selected] > .initial-value {
+  color: hsl(208,100%,60%);
 }
 
-.devtools-theme-tagname {
-  color: hsl(208,81%,21%); /* dark blue */
+.devtools-autocomplete-listbox.dark-theme > richlistitem[selected] > label {
+  color: #eee;
 }
 
-.devtools-theme-attrname {
-  color: hsl(208,56%,40%); /* blue */
+.devtools-autocomplete-listbox.dark-theme > richlistitem > label {
+  color: #ccc;
 }
 
-.devtools-theme-attrvalue {
-  color: hsl(24,85%,39%); /* orange */
+.devtools-autocomplete-listbox > richlistitem > .initial-value,
+.devtools-autocomplete-listbox > richlistitem > .autocomplete-value {
+  margin: 0;
+  padding: 1px 0;
+}
+
+.devtools-autocomplete-listbox > richlistitem > .autocomplete-count {
+  text-align: right;
+}
+
+/* Rest of the light theme */
+
+.devtools-autocomplete-popup.light-theme {
+  border: 1px solid hsl(210,24%,90%);
+  box-shadow: 0 1px 0 hsla(209,29%,90%,.25) inset;
+  background-image: linear-gradient(to bottom, hsla(209,18%,100%,0.9), hsl(210,24%,95%));
+}
+
+.devtools-autocomplete-listbox.light-theme > richlistitem[selected],
+.devtools-autocomplete-listbox.light-theme > richlistitem:hover {
+  background-color: rgba(128,128,128,0.3);
+}
+
+.devtools-autocomplete-listbox.light-theme > richlistitem[selected] > .autocomplete-value,
+.devtools-autocomplete-listbox:focus.light-theme > richlistitem[selected] > .initial-value {
+  color: #222;
+}
+
+.devtools-autocomplete-listbox.light-theme > richlistitem > label {
+  color: #666;
+}
+
+/* Responsive container */
+
+.devtools-responsive-container {
+  -moz-box-orient: horizontal;
+}
+
+@media (max-width: 700px) {
+  .devtools-responsive-container {
+    -moz-box-orient: vertical;
+  }
+
+  .devtools-responsive-container > .devtools-side-splitter {
+    border: 0;
+    margin: 0;
+    border-top: 1px solid black;
+    min-height: 3px;
+    height: 3px;
+    margin-bottom: -3px;
+    /* In some edge case the cursor is not changed to n-resize */
+    cursor: n-resize;
+  }
+
+  .devtools-responsive-container > .devtools-sidebar-tabs {
+    min-height: 35vh;
+    max-height: 75vh;
+  }
 }

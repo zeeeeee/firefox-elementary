@@ -1,6 +1,0 @@
-menuitem[type="checkbox"] > .menu-iconic-left,
-menuitem[checked="true"] > .menu-iconic-left,
-menuitem[type="radio"] > .menu-iconic-left {
-  margin-right: -8px;
-  margin-left: -4px;
-}

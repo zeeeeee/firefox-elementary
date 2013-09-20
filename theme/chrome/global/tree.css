@@ -71,7 +71,7 @@ tree {
 
 treechildren::-moz-tree-row {
   border: 1px solid transparent;
-  min-height: 18px;
+  min-height: 22px;
   height: 1.3em;
 }
 

@@ -20,7 +20,6 @@ Instructions for tertary requirements can be found on the [Firefox Addons][1] pa
 4. Enable the theme in Firefox
 
 ##Credits
-* [zeeeeee][2] for creating the [theme][3]
 * [elementary][4] team for UI design, icons and the elementary project
 
 [window]: https://addons.cdn.mozilla.net/img/uploads/previews/full/88/88616.png "elementary Firefox"

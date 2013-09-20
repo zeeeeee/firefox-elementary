@@ -105,7 +105,7 @@ toolbarbutton[checked="true"] {
   padding-bottom: 2px !important;
   -moz-padding-start: 4px !important;
   -moz-padding-end: 2px !important;
-  background-image: url("chrome://global/skin/toolbar/Lighten.png");
+/*  background-image: url("chrome://global/skin/toolbar/Lighten.png");*/
   color: ButtonText !important;
 }
 
