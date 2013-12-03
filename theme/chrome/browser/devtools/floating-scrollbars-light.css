@@ -6,5 +6,5 @@
 @import url("floating-scrollbars.css");
 
 scrollbar thumb {
-  background-color: rgba(170,170,170,0.2) !important;
+  background-color: rgba(170,170,170,0) !important;
 }

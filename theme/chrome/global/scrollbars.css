@@ -50,7 +50,7 @@ scrollbar {
     -moz-binding: url("chrome://global/content/bindings/scrollbar.xml#scrollbar");
     cursor: default;
     background: none !important;
-    z-index: 999999999999 !important;
+    pointer-events: none;
     position:relative!important;
 }
 
@@ -69,6 +69,7 @@ thumb[orient="vertical"] {
   max-height: 800px !important;
   min-height: 68px;
   width: 21px;
+  pointer-events: auto;
 }
 
 thumb[orient="horizontal"] {
@@ -76,6 +77,7 @@ thumb[orient="horizontal"] {
   max-width: 800px !important;
   min-width: 68px;
   height: 21px;
+  pointer-events: auto;
 }
 
 scrollbar thumb:hover,
