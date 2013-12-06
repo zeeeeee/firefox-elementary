@@ -1285,12 +1285,42 @@ border:none!important;
 /*  margin-top: -1px;*/
 /*  margin-bottom: -1px;*/
 }
-#plugins-notification-icon {
-  /*
-  list-style-image: url(chrome://browser/skin/notification-pluginNormal.png);
-  */
+/*#plugins-notification-icon {
   list-style-image: url(chrome://browser/skin/plugin.svg);
+}*/
+
+#plugins-notification-icon {
+  list-style-image: url(chrome://browser/skin/notification-pluginNormal.png);
 }
+
+#alert-plugins-notification-icon {
+  list-style-image: url(chrome://browser/skin/notification-pluginAlert.png);
+}
+
+#blocked-plugins-notification-icon {
+  list-style-image: url(chrome://browser/skin/notification-pluginBlocked.png);
+}
+
+#plugins-notification-icon,
+#alert-plugins-notification-icon,
+#blocked-plugins-notification-icon {
+  -moz-image-region: rect(0, 16px, 16px, 0);
+}
+
+#plugins-notification-icon:hover,
+#alert-plugins-notification-icon:hover,
+#blocked-plugins-notification-icon:hover {
+  -moz-image-region: rect(0, 32px, 16px, 16px);
+}
+
+#plugins-notification-icon:active,
+#alert-plugins-notification-icon:active,
+#blocked-plugins-notification-icon:active {
+  -moz-image-region: rect(0, 48px, 16px, 32px);
+}
+/*---------------------------------------*/
+
+
 #notification-popup-box:not([hidden]) + #identity-box {
   -moz-padding-start: 7px;
   border-radius: 0;
