@@ -1,3 +1,7 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
 /*
  *  This defines the look-and-feel styling of the error pages.
  *  (see: netError.xhtml)
@@ -18,11 +22,9 @@ body {
 }
 
 h1 {
-  margin: 0 0 0 0;
+  margin: 0 0 .6em 0;
   border-bottom: 1px solid ThreeDLightShadow;
-  font-size: 24pt;
-  font-family:'Open Sans';
-  font-style:bold condensed;
+  font-size: 160%;
 }
 
 ul, ol {
@@ -45,19 +47,18 @@ ul {
   max-width: 52em;
   margin: 4em auto;
   border: 1px solid ThreeDShadow;
-  border-radius: 6px;
+  border-radius: 10px;
   padding: 3em;
   -moz-padding-start: 30px;
   background: url("moz-icon://stock/gtk-dialog-warning?size=dialog") left 0 no-repeat -moz-Field;
   background-origin: content-box;
-  box-shadow: 0 0 4px 0 #9c9c9c;
 }
 
 #errorPageContainer.certerror {
   background-image: url("chrome://global/skin/icons/sslWarning.png");
 }
 
-body[dir="rtl"] #errorPageContainer {
+#errorPageContainer:-moz-dir(rtl) {
   background-position: right 0;
 }
 
@@ -71,14 +72,10 @@ body[dir="rtl"] #errorPageContainer {
 
 #errorShortDesc > p {
   overflow: auto;
-margin-top:5px;
   border-bottom: 1px solid ThreeDLightShadow;
   padding-bottom: 1em;
-  font-family:'Open Sans';
-  font-style:condensed;
-  font-size: 15pt;
-  font-weight:200;
-/*  white-space: pre-wrap;*/
+  font-size: 130%;
+  white-space: pre-wrap;
 }
 
 #errorLongDesc {
@@ -102,7 +99,7 @@ margin-top:5px;
   opacity: .4;
 }
 
-body[dir="rtl"] #brand {
+#brand:-moz-dir(rtl) {
   right: auto;
   left: 0;
 }

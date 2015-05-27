@@ -2,5 +2,3 @@ skin browser      elementary chrome/browser/
 skin communicator elementary chrome/communicator/
 skin mozapps      elementary chrome/mozapps/
 skin global       elementary chrome/global/
-
-skin os           elementary chrome/os/windows/     os=WINNT

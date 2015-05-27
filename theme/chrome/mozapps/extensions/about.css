@@ -1,3 +1,7 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
 #genericAbout {
   padding: 0px;
   min-height: 200px;
@@ -10,7 +14,7 @@
   color: -moz-DialogText;
 }
 
-@media all and (-moz-windows-compositor) {
+@media (-moz-windows-compositor) {
   #genericAbout {
     -moz-appearance: -moz-win-glass;
     background: transparent;
@@ -43,6 +47,10 @@
 
 #genericAbout[addontype="plugin"] #extensionIcon {
   list-style-image: url("chrome://mozapps/skin/plugins/pluginGeneric.png");
+}
+
+#genericAbout[addontype="dictionary"] #extensionIcon {
+  list-style-image: url("chrome://mozapps/skin/extensions/dictionaryGeneric.png");
 }
 
 #extensionName {

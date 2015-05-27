@@ -1,49 +1,8 @@
-/* ***** BEGIN LICENSE BLOCK *****
- * Version: MPL 1.1/GPL 2.0/LGPL 2.1
- *
- * The contents of this file are subject to the Mozilla Public License Version
- * 1.1 (the "License"); you may not use this file except in compliance with
- * the License. You may obtain a copy of the License at
- * http://www.mozilla.org/MPL/
- *
- * Software distributed under the License is distributed on an "AS IS" basis,
- * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
- * for the specific language governing rights and limitations under the
- * License.
- *
- * The Original Code is the Extension Manager UI.
- *
- * The Initial Developer of the Original Code is
- * the Mozilla Foundation.
- * Portions created by the Initial Developer are Copyright (C) 2010
- * the Initial Developer. All Rights Reserved.
- *
- * Contributor(s):
- *   Blair McBride <bmcbride@mozilla.com>
- *
- * Alternatively, the contents of this file may be used under the terms of
- * either the GNU General Public License Version 2 or later (the "GPL"), or
- * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
- * in which case the provisions of the GPL or the LGPL are applicable instead
- * of those above. If you wish to allow use of your version of this file only
- * under the terms of either the GPL or the LGPL, and not to allow others to
- * use your version of this file under the terms of the MPL, indicate your
- * decision by deleting the provisions above and replace them with the notice
- * and other provisions required by the GPL or the LGPL. If you do not delete
- * the provisions above, a recipient may use your version of this file under
- * the terms of any one of the MPL, the GPL or the LGPL.
- *
- * ***** END LICENSE BLOCK ***** */
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 @import url("chrome://global/skin/inContentUI.css");
-
-#addons-page {
-  -moz-appearance: none;
-  padding: 18px;
-  background-image: url("chrome://browser/skin/noise.png");
-  color: WindowText;
-}
-
 
 
 /*** global warnings ***/
@@ -74,7 +33,7 @@
   min-height: 41px;
 }
 
-@media all and (max-width: 600px) {
+@media (max-width: 600px) {
   .global-warning-text {
     display: none;
   }
@@ -165,7 +124,6 @@ text-shadow: 0 1px 0 rgba(255, 255, 255, 1) !important;
   position: relative;
   margin-top: 41px;
 text-shadow: 0 1px 0 rgba(255, 255, 255, 1) !important;
-padding-top:5px;
 }
 
 .category {
@@ -179,8 +137,6 @@ padding-top:5px;
   overflow: hidden;
   min-height: 0;
   color: WindowText;
-  margin-left:5px;
-margin-top:5px;
 }
 
 .category:-moz-locale-dir(ltr) {
@@ -198,29 +154,28 @@ margin-top:5px;
   border-bottom: 0;
   height: 0;
   opacity: 0;
-  -moz-transition-property: height, opacity;
-  -moz-transition-duration: 1s, 0.8s;
+  transition-property: height, opacity;
+  transition-duration: 1s, 0.8s;
 }
 
 .category:not([disabled]) {
- /* height: 52px;*//*disabled to fix the wrong iconsize, didn't notice any side effects*/
-  -moz-transition-property: height, opacity;
-  -moz-transition-duration: 1s, 0.8s;
+/*  height: 52px;*//*disabled to fix the wrong iconsize, didn't notice any side effects*/
+  transition-property: height, opacity;
+  transition-duration: 1s, 0.8s;
 }
 
 .category[selected] {
   background-color: -moz-Field;
   color: -moz-FieldText;
   border-color: ThreeDShadow;
-  box-shadow:0 0 4px 0 #9c9c9c;
 }
 
 .category-name {
-  font-size: 150%;
+  font-size: 120%;
 }
 
 /* Maximize the size of the viewport when the window is small */
-@media all and (max-width: 800px) {
+@media (max-width: 800px) {
   .category-name {
     display: none;
   }
@@ -261,11 +216,20 @@ margin-top:5px;
 #category-extension > .category-icon {
   list-style-image: url("chrome://mozapps/skin/extensions/category-extensions.png");
 }
+#category-service > .category-icon {
+  list-style-image: url("chrome://mozapps/skin/extensions/category-service.png");
+}
 #category-theme > .category-icon {
   list-style-image: url("chrome://mozapps/skin/extensions/category-themes.png");
 }
 #category-plugin > .category-icon {
   list-style-image: url("chrome://mozapps/skin/extensions/category-plugins.png");
+}
+#category-dictionary > .category-icon {
+  list-style-image: url("chrome://mozapps/skin/extensions/category-dictionaries.png");
+}
+#category-experiment > .category-icon {
+  list-style-image: url("chrome://mozapps/skin/extensions/category-experiments.png");
 }
 #category-availableUpdates > .category-icon {
   list-style-image: url("chrome://mozapps/skin/extensions/category-available.png");
@@ -331,6 +295,12 @@ margin-top:5px;
 
 #header-search {
   margin: 0;
+}
+
+@media (max-width: 600px) {
+  #header-search {
+    width: 12em;
+  }
 }
 
 .view-header {
@@ -404,7 +374,7 @@ margin-top:5px;
 
 .addon {
   border-bottom: 1px solid ThreeDLightShadow;
-  padding: 5px;
+  padding: 15px;
 }
 
 .addon[selected] .text-link,
@@ -421,7 +391,7 @@ margin-top:5px;
 .icon-container {
   width: 48px;
   height: 48px;
-  margin: 3px 7px;
+  margin: 0px 7px;
   -moz-box-align: center;
   -moz-box-pack: center;
 }
@@ -434,6 +404,7 @@ margin-top:5px;
 
 .addon[active="false"] .icon {
   filter: url("chrome://mozapps/skin/extensions/extensions.svg#greyscale");
+opacity:0.5;
 }
 
 .addon-view[type="theme"] .icon {
@@ -448,8 +419,16 @@ margin-top:5px;
   list-style-image: url("chrome://mozapps/skin/plugins/pluginGeneric.png");
 }
 
+.addon-view[type="dictionary"] .icon {
+  list-style-image: url("chrome://mozapps/skin/extensions/dictionaryGeneric.png");
+}
+
+.addon-view[type="experiment"] .icon {
+  list-style-image: url("chrome://mozapps/skin/extensions/experimentGeneric.png");
+}
+
 .name-container {
-  font-size: 150%;
+  font-size: 130%;
   margin-bottom: 0;
   font-weight: bold;
   -moz-box-align: end;
@@ -461,13 +440,22 @@ margin-top:5px;
 }
 
 .addon-view[active="false"]:not([selected]) {
-  color: GrayText;
-text-shadow: 0 1px 0 rgba(255, 255, 255, 1) !important;
+  color: #aaa;
 }
+
+/*.description-outer-container {
+margin-top:0px!important;
+}*/
 
 .description-container {
   -moz-margin-start: 6px;
+margin-top:0;
   -moz-box-align: center;
+
+}
+
+.addon-view:not([active="false"]) .description-container {
+color:#666;
 }
 
 .description {
@@ -531,21 +519,21 @@ text-shadow: 0 1px 0 rgba(255, 255, 255, 1) !important;
 }
 
 .addon[active="false"] {
-  background-image: -moz-linear-gradient(rgba(135, 135, 135, 0.2),
-                                         rgba(135, 135, 135, 0.1));
+/*  background-image: linear-gradient(rgba(135, 135, 135, 0.2),
+                                    rgba(135, 135, 135, 0.1));*/
 }
 
 .addon-view[notification="warning"] {
   background-image: url("chrome://mozapps/skin/extensions/stripes-warning.png"),
-                    -moz-linear-gradient(rgba(255, 255, 0, 0.04),
-                                         rgba(255, 255, 0, 0));
+                    linear-gradient(rgba(255, 255, 0, 0.04),
+                                    rgba(255, 255, 0, 0));
   background-repeat: repeat-x;
 }
 
 .addon-view[notification="error"] {
   background-image: url("chrome://mozapps/skin/extensions/stripes-error.png"),
-                    -moz-linear-gradient(rgba(255, 0, 0, 0.04),
-                                         rgba(255, 0, 0, 0));
+                    linear-gradient(rgba(255, 0, 0, 0.04),
+                                    rgba(255, 0, 0, 0));
   background-repeat: repeat-x;
 }
 
@@ -553,16 +541,16 @@ text-shadow: 0 1px 0 rgba(255, 255, 255, 1) !important;
 .addon-view[pending="upgrade"],
 .addon-view[pending="install"] {
   background-image: url("chrome://mozapps/skin/extensions/stripes-info-positive.png"),
-                    -moz-linear-gradient(rgba(0, 255, 0, 0.04),
-                                         rgba(0, 255, 0, 0));
+                    linear-gradient(rgba(0, 255, 0, 0.04),
+                                    rgba(0, 255, 0, 0));
   background-repeat: repeat-x;
 }
 
 .addon-view[pending="disable"],
 .addon-view[pending="uninstall"] {
   background-image: url("chrome://mozapps/skin/extensions/stripes-info-negative.png"),
-                    -moz-linear-gradient(rgba(128, 128, 128, 0.04),
-                                         rgba(128, 128, 128, 0));
+                    linear-gradient(rgba(128, 128, 128, 0.04),
+                                    rgba(128, 128, 128, 0));
   background-repeat: repeat-x;
 }
 
@@ -571,14 +559,14 @@ text-shadow: 0 1px 0 rgba(255, 255, 255, 1) !important;
   height: 0;
   overflow: hidden;
   opacity: 0;
-  -moz-transition-property: height, opacity;
-  -moz-transition-duration: 0.5s, 0.5s;
+  transition-property: height, opacity;
+  transition-duration: 0.5s, 0.5s;
 }
 
 .addon[show-relnotes] .relnotes-container {
   opacity: 1;
-  -moz-transition-property: height, opacity;
-  -moz-transition-duration: 0.5s, 0.5s;
+  transition-property: height, opacity;
+  transition-duration: 0.5s, 0.5s;
 }
 
 .addon .relnotes-header {
@@ -636,8 +624,8 @@ text-shadow: 0 1px 0 rgba(255, 255, 255, 1) !important;
   -moz-box-align: center;
   -moz-box-pack: center;
   opacity: 1;
-  -moz-transition-property: opacity;
-  -moz-transition-duration: 1s;
+  transition-property: opacity;
+  transition-duration: 1s;
 }
 
 .detail-view-container {
@@ -656,8 +644,12 @@ text-shadow: 0 1px 0 rgba(255, 255, 255, 1) !important;
   -moz-margin-start: 0;
 }
 
-#detail-icon {
+#detail-icon-container {
+  width: 64px;
   -moz-margin-end: 10px;
+}
+
+#detail-icon {
   max-width: 64px;
   max-height: 64px;
 }
@@ -682,7 +674,7 @@ text-shadow: 0 1px 0 rgba(255, 255, 255, 1) !important;
   background-repeat: no-repeat;
   border: 1px threedshadow solid;
   border-radius: 5px;
-  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 #detail-screenshot[loading="error"] {
@@ -728,6 +720,7 @@ text-shadow: 0 1px 0 rgba(255, 255, 255, 1) !important;
 }
 
 #detail-grid > columns > column:first-child {
+  min-width: 15em;
   max-width: 25em;
 }
 
@@ -742,7 +735,7 @@ setting[first-row="true"] {
 setting {
   border-top: 1px solid ThreeDShadow;
   -moz-box-align: center;
-  min-height: 33px;
+  min-height: 32px;
 }
 
 #detail-controls {
@@ -750,12 +743,21 @@ setting {
 }
 
 #detail-view[active="false"]:not([pending]):not([notification]) {
-  background-image: -moz-linear-gradient(rgba(135, 135, 135, 0.1),
-                                         rgba(135, 135, 135, 0));
+  background-image: linear-gradient(rgba(135, 135, 135, 0.1),
+                                    rgba(135, 135, 135, 0));
 }
 
 setting[first-row="true"] {
   margin-top: 2em;
+}
+
+setting {
+  -moz-box-align: start;
+}
+
+.preferences-alignment {
+  min-height: 32px;
+  -moz-box-align: center;
 }
 
 .preferences-description {
@@ -763,10 +765,11 @@ setting[first-row="true"] {
   color: graytext;
   margin-top: -2px;
   -moz-margin-start: 2em;
+  white-space: pre-wrap;
 }
 
-setting[type="string"] > .setting-input > textbox {
-  -moz-box-flex: 1;
+.preferences-description:empty {
+  display: none;
 }
 
 menulist { /* Fixes some styling inconsistencies */
@@ -934,3 +937,29 @@ setting[type="radio"] > radiogroup {
   display: none;
 }
 
+/*** telemetry experiments ***/
+
+#detail-experiment-container {
+  font-size: 80%;
+  margin-bottom: 1em;
+}
+
+#detail-experiment-bullet-container,
+#detail-experiment-state,
+#detail-experiment-time,
+.experiment-bullet-container,
+.experiment-state,
+.experiment-time {
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.addon .experiment-bullet,
+#detail-experiment-bullet {
+  fill: rgb(158, 158, 158);
+}
+
+.addon[active="true"] .experiment-bullet,
+#detail-view[active="true"] #detail-experiment-bullet {
+  fill: rgb(106, 201, 20);
+}

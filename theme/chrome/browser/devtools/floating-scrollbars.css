@@ -24,8 +24,8 @@ scrollbar[orient="horizontal"] {
 scrollbar thumb {
   -moz-appearance: none !important;
   border-width: 0px !important;
-  background-color: rgba(170,170,170,0) !important;
-  border-radius: 1px !important;
+  background-color: rgba(170,170,170,0.2) !important;
+  border-radius: 3px !important;
 }
 
 scrollbar scrollbarbutton, scrollbar gripper {
