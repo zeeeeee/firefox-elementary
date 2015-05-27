@@ -6,15 +6,15 @@
   <Description about="urn:mozilla:install-manifest">
     <em:type>4</em:type>
     <em:id>{b398db90-5867-11e0-b8af-0800200c9a66}</em:id>
-    <em:version>31.0</em:version>
+    <em:version>38.0</em:version>
 
     <!-- Target Application this extension can install into,
          with minimum and maximum supported versions. -->
     <em:targetApplication>
       <Description>
         <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
-        <em:minVersion>31.0a1</em:minVersion>
-        <em:maxVersion>32.*</em:maxVersion>
+        <em:minVersion>32.*</em:minVersion>
+        <em:maxVersion>39.*</em:maxVersion>
       </Description>
     </em:targetApplication>
    
@@ -23,6 +23,7 @@
     <em:description>Firefox for elementaryOS</em:description>
     <em:creator>Zeeeeee</em:creator>
     <em:contributor>loklaan</em:contributor>
+    <em:contributor>Christopher Bayliss</em:contributor>
     <em:internalName>elementary</em:internalName>
 
   </Description>     
