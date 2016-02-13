@@ -1,15 +1,21 @@
-elementary Firefox
+elementary Firefox - Retired
 ==================
+
+_**Notice:**_ This theme is retired. It will not receive any future updates from the maintainers.
+
+If you would like to adopt this project, please message @zeeeeee or one of the maintainers.
+
+---
 
 Integrate Firefox into [elementary Luna OS][4]
 
 ![elementary Firefox window][window]
 
-##Install
-###Release
+## Install
+### Release
 Instructions can be found and stable versions of the theme can be installed from [Firefox Addons][1]
 
-###Development
+### Development
 Instructions for tertary requirements can be found on the [Firefox Addons][1] page.
 
 1. Clone this repo
@@ -19,7 +25,7 @@ Instructions for tertary requirements can be found on the [Firefox Addons][1] pa
   * copy the addon into your firefox addon folder
 4. Enable the theme in Firefox
 
-##Credits
+## Credits
 * [elementary][4] team for UI design, icons and the elementary project
 
 [window]: https://addons.cdn.mozilla.net/img/uploads/previews/full/88/88616.png "elementary Firefox"
