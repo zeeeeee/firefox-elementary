@@ -1,41 +1,6 @@
-/* ***** BEGIN LICENSE BLOCK *****
- * Version: MPL 1.1/GPL 2.0/LGPL 2.1
- *
- * The contents of this file are subject to the Mozilla Public License Version
- * 1.1 (the "License"); you may not use this file except in compliance with
- * the License. You may obtain a copy of the License at
- * http://www.mozilla.org/MPL/
- *
- * Software distributed under the License is distributed on an "AS IS" basis,
- * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
- * for the specific language governing rights and limitations under the
- * License.
- *
- * The Original Code is Mozilla Communicator client code, released
- * March 31, 1998.
- *
- * The Initial Developer of the Original Code is
- * Netscape Communications Corporation.
- * Portions created by the Initial Developer are Copyright (C) 1998-2001
- * the Initial Developer. All Rights Reserved.
- *
- * Contributor(s):
- *   Joe Hewitt (hewitt@netscape.com)
- *   Pamela Greene (pamg.bugs@gmail.com)
- *
- * Alternatively, the contents of this file may be used under the terms of
- * either the GNU General Public License Version 2 or later (the "GPL"), or
- * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
- * in which case the provisions of the GPL or the LGPL are applicable instead
- * of those above. If you wish to allow use of your version of this file only
- * under the terms of either the GPL or the LGPL, and not to allow others to
- * use your version of this file under the terms of the MPL, indicate your
- * decision by deleting the provisions above and replace them with the notice
- * and other provisions required by the GPL or the LGPL. If you do not delete
- * the provisions above, a recipient may use your version of this file under
- * the terms of any one of the MPL, the GPL or the LGPL.
- *
- * ***** END LICENSE BLOCK ***** */
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 /* ===== autocomplete.css =================================================
   == Styles used by the autocomplete widget.
@@ -49,7 +14,7 @@
 /* .padded is used by autocomplete widgets that don't have an icon. Gross. -dwh */
 textbox:not(.padded) {
   cursor: default;
-  padding: 0;
+  padding: 0 1px;
 }
 
 textbox[enablehistory="true"] {
@@ -83,14 +48,13 @@ textbox:not(.padded) .textbox-input-box {
 panel[type="autocomplete"],
 panel[type="autocomplete-richlistbox"],
 .autocomplete-history-popup {
--moz-appearance:none;
   border-width: 1px;
   -moz-border-top-colors: ThreeDDarkShadow;
   -moz-border-right-colors: ThreeDDarkShadow;
   -moz-border-bottom-colors: ThreeDDarkShadow;
   -moz-border-left-colors: ThreeDDarkShadow;
   padding: 0;
-  background-color:#fff!important;
+  background-color: -moz-Field;
 }
 
 .autocomplete-history-popup {
@@ -149,30 +113,27 @@ treechildren.autocomplete-treebody::-moz-tree-cell-text(selected) {
 }
 
 .autocomplete-richlistitem {
-  padding: 1px 2px;
+  padding: 6px 2px;
   color: MenuText;
-margin-top:4px;
-margin-bottom:4px;
 }
 
-.autocomplete-richlistitem:not(:first-child) {
-  border-top: 1px solid ThreeDLightShadow;
-}
-
-.ac-url-text {
-    font-size:11px;
-	color: LightGray !important;
+.ac-url-box {
+  margin-top: 1px;
 }
 
 .ac-site-icon {
   width: 16px; 
   height: 16px;
-  margin: 0 5px -3px 3px;
+  margin-bottom: -2px;
+  -moz-margin-start: 3px;
+  -moz-margin-end: 6px;
 }
 
 .ac-type-icon {
   width: 16px; 
   height: 16px;
+  -moz-margin-start: 6px;
+  -moz-margin-end: 4px;
 }
 
 .ac-extra > .ac-result-type-tag {
@@ -184,13 +145,13 @@ margin-bottom:4px;
 }
 
 .ac-ellipsis-after {
-  margin: 2px 0px 0px 0px !important;
+  margin: 0 !important;
   padding: 0; 
   min-width: 1em;
 }
 
 .ac-normal-text {
-  margin: 2px 0px 0px 0px !important;
+  margin: 0 !important;
   padding: 0;
 }
 
@@ -200,12 +161,20 @@ margin-bottom:4px;
 }
 
 html|span.ac-emphasize-text {
-  font-weight: bold;
-  text-decoration: underline;
+  box-shadow: inset 0 0 1px 1px rgba(0,0,0,0.1);
+  background-color: rgba(0,0,0,0.05);
+  border-radius: 2px;
+  text-shadow: 0 0 currentColor; /*faux bold effect*/
 }
 
-html|span.ac-emphasize-alt {
-  text-decoration: underline;
+.ac-url-text > html|span.ac-emphasize-text,
+.ac-action-text > html|span.ac-emphasize-text {
+  box-shadow: none;
+}
+
+.ac-normal-text[selected="true"] > html|span.ac-emphasize-text {
+  box-shadow: inset 0 0 1px 1px rgba(255,255,255,0.3);
+  background-color: rgba(255,255,255,0.2);
 }
 
 .ac-title, .ac-url {

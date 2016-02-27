@@ -1,3 +1,7 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
 
 @import url("chrome://global/skin/");
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
@@ -13,12 +17,11 @@
   background-color: -moz-Field;
   color: -moz-FieldText;
   border: 1px solid ThreeDShadow;
-  border-radius: 6px;
+  border-radius: 10px;
   padding: 3em;
   -moz-padding-start: 30px;
   margin-left: 1em;
   margin-right: 1em;
-  box-shadow: 0 0 4px 0 #9c9c9c;
 }
 
 #warningInnerBox
@@ -29,10 +32,8 @@
 #warningTitle
 {
   margin: 0 0 .6em 0;
-  font-size: 24pt;
-  font-family:'Open Sans';
-  font-weight:bold;
-  border-bottom: 1px solid ThreeDLightShadow;
+  font-size: 160%;
+  border-bottom: 1px solid ThreeDLightShadow
 }
 
 #warningText

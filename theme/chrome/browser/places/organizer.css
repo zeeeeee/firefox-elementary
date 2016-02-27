@@ -1,3 +1,7 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
 
 /* Toolbar */
 #placesToolbar {
@@ -73,14 +77,6 @@
   -moz-padding-start: 2px;
 }
 
-#searchModifiers {
-  padding-right: 3px;
-}
-
-#saveSearch {
-  list-style-image: url("moz-icon://stock/gtk-save?size=menu");
-}
-
 /**** menuitem stock icons ****/
 #orgClose {
   list-style-image: url("moz-icon://stock/gtk-close?size=menu");
@@ -92,4 +88,12 @@
 
 #fileExport {
   list-style-image: url("moz-icon://stock/gtk-save-as?size=menu");
+}
+
+/**
+ * Downloads pane
+ */
+
+#clearDownloadsButton > .toolbarbutton-icon {
+  display: none;
 }

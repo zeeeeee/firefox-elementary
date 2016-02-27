@@ -4,15 +4,66 @@
 
 :root {
   -moz-appearance: none;
+  font-size: 75%;
   background-color: transparent;
 }
 
 /* SCROLLBOX */
-#newtab-scrollbox:not([page-disabled]) {
-  background-color: rgb(229,229,229);
-  background-image: url(chrome://browser/skin/newtab/noise.png),
-                    -moz-linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.2));
-  background-attachment: fixed;
+#newtab-scrollbox:not([page-disabled]),
+#newtab-scrollbox:not([page-disabled]) #newtab-margin-bottom {
+  color: rgb(0,0,0);
+  background-color: #dedede;
+}
+
+/* UNDO */
+#newtab-undo-container {
+  padding: 4px 3px;
+  border: 1px solid;
+  border-color: rgba(8,22,37,.12) rgba(8,22,37,.14) rgba(8,22,37,.16);
+  background-color: rgba(255,255,255,.4);
+  color: #525e69;
+  margin-bottom: 0px;
+}
+
+#newtab-undo-label {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.newtab-undo-button {
+  -moz-appearance: none;
+  color: rgb(221,72,20);
+  cursor: pointer;
+  padding: 0;
+  margin: 0 4px;
+  border: 0;
+  background: transparent;
+  text-decoration: none;
+  min-width: 0;
+}
+
+.newtab-undo-button:hover {
+  text-decoration: underline;
+}
+
+.newtab-undo-button:-moz-focusring {
+  outline: 1px dotted;
+}
+
+#newtab-undo-close-button {
+  -moz-appearance: none;
+  padding: 0;
+  border: none;
+  height: 16px;
+  width: 16px;
+}
+
+#newtab-undo-close-button > .toolbarbutton-text {
+  display: none;
+}
+
+#newtab-undo-close-button:-moz-focusring {
+  outline: 1px dotted;
 }
 
 /* TOGGLE */
@@ -28,9 +79,14 @@
   background-position: -232px 0;
 }
 
+#newtab-margin-top {
+  min-height: 5px!important;
+  max-height: 80px!important;
+}
+
 /* ROWS */
 .newtab-row {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .newtab-row:last-child {
@@ -39,8 +95,14 @@
 
 /* CELLS */
 .newtab-cell {
-  -moz-margin-end: 55px;
-  -moz-transition: border-color 100ms ease-out;
+  -moz-margin-end: 10px;
+/*  background-color: rgba(255,255,255,.2);
+  border: 1px solid;
+  border-color: rgba(8,22,37,.12) rgba(8,22,37,.14) rgba(8,22,37,.16);
+  border-radius: 1px;
+  transition: border-color 100ms ease-out;*/
+height:120px;
+padding:5px;
 }
 
 .newtab-cell:empty {
@@ -48,39 +110,35 @@
   border-color: rgba(8,22,37,.15) rgba(8,22,37,.17) rgba(8,22,37,.19);
 }
 
-.newtab-cell:last-child {
+/*.newtab-cell:last-child {
   -moz-margin-end: 0;
+}*/
+
+.newtab-cell:hover:not(:empty):not([dragged]):not([ignorehover]) {
+  border-color: rgba(8,22,37,.25) rgba(8,22,37,.27) rgba(8,22,37,.3);
 }
-
-
+/*remove dashed border after clicking*/
+.newtab-link:focus{
+outline:none;
+}
 /* SITES */
-.newtab-site:hover > .newtab-control {
-  -moz-transition-delay: 1s;
-    opacity: 1;
-}
-
 .newtab-site {
   text-decoration: none;
-  background: -moz-linear-gradient(bottom, transparent 26px, #e3e3e3 1px,#f6f6f6);
+background-color: #f6f6f6;
+  transition-property: top, left, opacity, box-shadow, background-color;
   border-radius: 3px;
-  -moz-transition-property: top, left, opacity, box-shadow, background-color;
-}
-.newtab-thumbnail {
-  box-shadow:0 2px 5px rgba(0,0,0,.3), 0 0 0px #fff inset;
-  border: 1px solid #a7a7a7;
-  margin-bottom:25px;
-  border-radius: 3px;
-  -moz-transition-property: top, left, opacity, box-shadow, background-color;
+
 }
 
-.newtab-thumbnail:hover,
-.newtab-thumbnail[dragged] {
-  border-color: rgba(8,22,37,.25) rgba(8,22,37,.27) rgba(8,22,37,.3);
-  box-shadow: 0 1px 10px 1px rgba(8,22,37,.3)!important;
+.newtab-cell:not([ignorehover]) > .newtab-site:hover,
+.newtab-site[dragged] {
+  box-shadow: 0 0 10px rgba(8,22,37,.3);
 }
 
-.newtab-thumbnail[dragged] {
-  -moz-transition-property: box-shadow, background-color;
+.newtab-site[dragged] {
+  transition-property: box-shadow, background-color;
+/*  background-color: rgb(242,242,242);*/
+  background-color: none;
 }
 
 /* THUMBNAILS */
@@ -89,25 +147,36 @@
   background-clip: padding-box;
   background-repeat: no-repeat;
   background-size: cover;
+/*zeeeee*/
+  box-shadow:0 2px 5px rgba(0,0,0,.3), 0 0 0px #fff inset;
+  border: 1px solid #a7a7a7;
+  border-radius: 3px;
+  -moz-transition-property: top, left, opacity, box-shadow, background-color;
+}
 
+.newtab-site[type=affiliate] .newtab-thumbnail,
+.newtab-site[type=organic] .newtab-thumbnail,
+.newtab-site[type=sponsored] .newtab-thumbnail {
+  background-position: top center;
+  background-size: auto;
 }
 
 /* TITLES */
 .newtab-title {
+bottom:-22px;
   padding: 0 8px;
+/*  background-color: rgba(248,249,251,.95);*/
   color: #4d4d4d;
-  font-size: 12px;
   line-height: 24px;
   text-align:center;
   text-shadow:0 1px 0 rgba(255, 255, 255, 0.5)
 }
-/*remove dashed border after clicking*/
-.newtab-link:focus{
-outline:none!important;
+
+.newtab-site[type=sponsored] .newtab-title {
+  -moz-padding-end: 24px;
 }
 
 /* CONTROLS */
-
 .newtab-control {
   width: 24px;
   height: 24px;
@@ -146,4 +215,22 @@ outline:none!important;
 
 .newtab-control-block:active {
   background-position: -192px 0;
+}
+
+.newtab-control-sponsored {
+  background-position: -249px -1px;
+}
+
+.newtab-control-sponsored:hover {
+  background-position: -265px -1px;
+}
+
+.newtab-control-sponsored[panelShown] {
+  background-position: -281px -1px;
+}
+
+/* Search doesn't look very bad but leaves less space for thumbnails and its a duplication of the omnibar, so lets disable just redundant stuff */
+#newtab-search-container {
+  display: none;
+
 }

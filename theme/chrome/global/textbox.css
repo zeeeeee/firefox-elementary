@@ -1,40 +1,6 @@
-/* ***** BEGIN LICENSE BLOCK *****
- * Version: MPL 1.1/GPL 2.0/LGPL 2.1
- *
- * The contents of this file are subject to the Mozilla Public License Version
- * 1.1 (the "License"); you may not use this file except in compliance with
- * the License. You may obtain a copy of the License at
- * http://www.mozilla.org/MPL/
- *
- * Software distributed under the License is distributed on an "AS IS" basis,
- * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
- * for the specific language governing rights and limitations under the
- * License.
- *
- * The Original Code is Mozilla Communicator client code, released
- * March 31, 1998.
- *
- * The Initial Developer of the Original Code is
- * Netscape Communications Corporation.
- * Portions created by the Initial Developer are Copyright (C) 1998-2001
- * the Initial Developer. All Rights Reserved.
- *
- * Contributor(s):
- *   Joe Hewitt (hewitt@netscape.com)
- *
- * Alternatively, the contents of this file may be used under the terms of
- * either the GNU General Public License Version 2 or later (the "GPL"), or
- * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
- * in which case the provisions of the GPL or the LGPL are applicable instead
- * of those above. If you wish to allow use of your version of this file only
- * under the terms of either the GPL or the LGPL, and not to allow others to
- * use your version of this file under the terms of the MPL, indicate your
- * decision by deleting the provisions above and replace them with the notice
- * and other provisions required by the GPL or the LGPL. If you do not delete
- * the provisions above, a recipient may use your version of this file under
- * the terms of any one of the MPL, the GPL or the LGPL.
- *
- * ***** END LICENSE BLOCK ***** */
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 /* ===== textbox.css ==================================================
   == Styles used by the XUL textbox element.
@@ -44,6 +10,7 @@
 @namespace html url("http://www.w3.org/1999/xhtml");
 
 /* ::::: textbox ::::: */
+
 /*
 textbox {
   -moz-appearance: textfield;
@@ -54,12 +21,11 @@ textbox {
   -moz-border-right-colors: ThreeDHighlight ThreeDLightShadow;
   -moz-border-bottom-colors: ThreeDHighlight ThreeDLightShadow;
   -moz-border-left-colors: ThreeDShadow ThreeDDarkShadow;
-  padding: 2px 2px 3px;
-  -moz-padding-start: 4px;
+  padding: 2px 3px 3px;
+  -moz-padding-start: 5px;
   background-color: -moz-Field;
   color: -moz-FieldText;
 }*/
-
 textbox {
   -moz-appearance: none;
   border: 1px solid #a0a0a0 !important;
@@ -76,15 +42,13 @@ textbox {
   box-shadow: 0 1px 0 rgba(255,255,255,0.34), inset 1px 1px 0 0 rgba(0,0,0,0.1), inset -1px 0px 0 0 rgba(0,0,0,0.1)!important;
   -moz-box-align: stretch;
 }
-
 textbox[focused="true"]:not([readonly="true"]):not([disabled="true"]) {
   border: 1px solid #689cd3 !important;
   -moz-border-top-colors: #679fd9 !important;
   -moz-border-left-colors: #679ed6 !important;
   -moz-border-right-colors: #679ed6 !important;
-  box-shadow: 0 1px 0 rgba(255,255,255,0.34), inset 0 0 0 1px rgba(170,187,204,.5)!important;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.34), inset 0 0 1px 1px rgba(0,106,204,.2)!important;
 }
-
 
 html|*.textbox-input, 
 html|*.textbox-textarea {
@@ -96,16 +60,17 @@ html|*.textbox-textarea {
   font: inherit;
 }
 
-html|*.textbox-input:-moz-placeholder,
-html|*.textbox-textarea:-moz-placeholder {
-  color: GrayText;
-}
-
 .textbox-contextmenu {
   cursor: default;
 }
 
 /* ..... readonly state ..... */
+
+/*textbox[readonly="true"] {
+  background-color: -moz-Dialog;
+  color: -moz-DialogText;
+}*/
+
 textbox[readonly="true"] {
   cursor: default;
   background-image:none!important;
@@ -113,7 +78,14 @@ textbox[readonly="true"] {
   box-shadow: 0 1px 0 rgba(255,255,255,0.34), inset 1px 1px 0 0 rgba(0,0,0,0.1), inset -1px 0px 0 0 rgba(0,0,0,0.1), inset 0 -1px 0 rgba(100,100,100,0.1)!important;
 }
 
-/* ..... disabled state .....*/
+/* ..... disabled state ..... */
+
+/*
+textbox[disabled="true"] {
+  cursor: default;
+  background-color: -moz-Dialog;
+  color: GrayText;
+}*/
 textbox[disabled="true"] {
   cursor: default;
   background-image:none!important;
@@ -206,4 +178,3 @@ menuitem[cmd="cmd_selectAll"] {
 menuitem[cmd="cmd_selectAll"][disabled] {
   list-style-image: url("moz-icon://stock/gtk-select-all?size=menu&state=disabled");
 }
-

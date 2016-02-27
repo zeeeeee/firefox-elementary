@@ -1,18 +1,15 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
 /* Sidebars */
-.sidebar-placesTree {
-  margin: 0;
--moz-appearance:none;
-border:none;
+#sidebar-search-label {
+display:none;
 }
-#sidebar-search-label{
-display:none!important;
+#sidebar-search-container{
+background:white;
 }
 
-#sidebar-search-container{
--moz-appearance:none!important;
-background:white!important;
-}
-/*exp*/
 textbox[type="search"]{
 -moz-appearance:none!important;
 -moz-box-align: stretch;
@@ -26,7 +23,20 @@ padding-right:3px;
 background-image: -moz-linear-gradient(#eeeeee 1px, #f8f8f8 3px, #FEFEFE 21px, #fafafa 1px) !important;
 -moz-box-shadow:inset 0px 1px 0 0 rgba(20,20,20,0.1)!important;
 }
-/*end exp*/
+textbox[type="search"][focused="true"]:not([readonly="true"]):not([disabled="true"]) {
+  border: 1px solid #689cd3 !important;
+  -moz-border-top-colors: #679fd9 !important;
+  -moz-border-left-colors: #679ed6 !important;
+  -moz-border-right-colors: #679ed6 !important;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.34), inset 0 0 1px 1px rgba(0,106,204,.2)!important;
+}
+
+
+.sidebar-placesTree {
+-moz-appearance:none;
+  margin: 0;
+border:none;
+}
 
 .sidebar-placesTreechildren::-moz-tree-cell(leaf) ,
 .sidebar-placesTreechildren::-moz-tree-image(leaf) {
@@ -53,6 +63,11 @@ treechildren::-moz-tree-image(title) {
 
 treechildren::-moz-tree-image(title, livemarkItem) {
   list-style-image: url("chrome://browser/skin/places/livemark-item.png");
+  -moz-image-region: rect(0px, 16px, 16px, 0px);
+}
+
+treechildren::-moz-tree-image(title, livemarkItem, visited) {
+  -moz-image-region: rect(0px, 32px, 16px, 16px);
 }
 
 treechildren::-moz-tree-image(title, separator) {
@@ -102,7 +117,7 @@ treechildren::-moz-tree-image(query, OrganizerQuery_Downloads) {
 
 treechildren::-moz-tree-image(title, query, tagContainer),
 treechildren::-moz-tree-image(query, OrganizerQuery_Tags) {
-  list-style-image: url("chrome://mozapps/skin/places/tagContainerIcon.png");
+  list-style-image: url("chrome://browser/skin/places/tag.png");
 }
 
 /* calendar icon for folders grouping items by date */

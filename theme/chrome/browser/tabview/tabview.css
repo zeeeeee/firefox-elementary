@@ -1,3 +1,7 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
 body {
   font: -moz-window;
   color: WindowText;
@@ -6,7 +10,7 @@ body {
 
 #bg {
   background-color: window;
-  background-image: -moz-linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,.2));
+  background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2));
 }
 
 /* Tabs
@@ -87,7 +91,17 @@ html[dir=rtl] .favicon {
   width: 16px;
   height: 16px;
   opacity: 0.2;
-  background: url("moz-icon://stock/gtk-close?size=menu") no-repeat;
+  background-image: -moz-image-rect(url("chrome://global/skin/icons/close.svg"), 0, 16, 16, 0);
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.close:hover {
+  background-image: -moz-image-rect(url("chrome://global/skin/icons/close.svg"), 0, 32, 16, 16);
+}
+
+.close:hover:active {
+  background-image: -moz-image-rect(url("chrome://global/skin/icons/close.svg"), 0, 48, 16, 32);
 }
 
 html[dir=rtl] .close {
@@ -112,7 +126,7 @@ html[dir=rtl] .close {
 html[dir=rtl] .expander {
   right: auto;
   left: 6px;
-  -moz-transform: scaleX(-1);
+  transform: scaleX(-1);
 }
 
 .expander:hover {
@@ -122,9 +136,9 @@ html[dir=rtl] .expander {
 .close:hover,
 .expander:hover,
 .appTabIcon:hover {
-  -moz-transition-property: opacity;
-  -moz-transition-duration: 0.5s;
-  -moz-transition-timing-function: ease-out;
+  transition-property: opacity;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-out;
 }
 
 .favicon img:hover, 
@@ -193,7 +207,7 @@ html[dir=rtl] .stack-trayed .tab-title {
   cursor: pointer;
   border: 1px solid rgba(230,230,230,1);
   background-color: window;
-  background-image: -moz-linear-gradient(rgba(255,255,255,.3),rgba(255,255,255,.1));
+  background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.1));
   border-radius: 0.4em;
   box-shadow:
     inset rgba(255, 255, 255, 0.6) 0 0 0 2px,
@@ -332,30 +346,6 @@ html[dir=rtl] .undo .close {
   opacity: 1.0;
 }
 
-
-/* InfoItems
-----------------------------------*/
-
-.info-item {
-  cursor: move;
-  border: 1px solid rgba(230,230,230,1);
-  background-color: rgba(248,248,248,1);
-  border-radius: 0.4em;
-  box-shadow:
-    inset rgba(255, 255, 255, 0.6) 0 0 0 2px,
-    rgba(0,0,0, .2) 1px 1px 3px;
-}
-
-html[dir=rtl] .info-item {
-  box-shadow:
-    inset rgba(255, 255, 255, 0.6) 0 0 0 2px,
-    rgba(0,0,0, .2) -1px 1px 3px;
-}
-
-.intro {
-  margin: 10px;
-}
-
 /* Trenches
 ----------------------------------*/
 
@@ -447,16 +437,21 @@ input.name:focus {
   color: WindowText;
 }
 
-input.name:-moz-placeholder {
+input.name::-moz-placeholder {
+  opacity: 1.0;
   font-style: italic !important;
   color: transparent;
   background-image: url(chrome://browser/skin/tabview/edit-light.png);
   background-repeat: no-repeat;
-  -moz-padding-start: 20px;
 }
 
-.title-container:hover input.name:-moz-placeholder {
+.title-container:hover input.name::-moz-placeholder {
   color: GrayText;
+  background-image: none;
+}
+
+input.name:focus::-moz-placeholder {
+  background-image: none;
 }
 
 .title-shield {
@@ -467,8 +462,8 @@ input.name:-moz-placeholder {
   padding: 1px;
   left: 0;
   top: 0;
-  width: 100%;
   height: 100%;
+  width: -moz-available;
   cursor: text;
 }
 
@@ -507,7 +502,7 @@ html[dir=rtl] .title-shield {
 html[dir=rtl] .resizer {
   right: auto;
   left: 0;
-  -moz-transform: scaleX(-1);
+  transform: scaleX(-1);
 }
 
 .iq-resizable-handle {
@@ -574,6 +569,8 @@ html[dir=rtl] .iq-resizable-se {
 
 #searchbox{
   width: 270px;
+  max-width: -moz-available;
+  -moz-margin-start: 20px;
   height: 30px;
   box-shadow: 0px 1px 0px rgba(255,255,255,.5), 0px -1px 0px rgba(0,0,0,1), 0px 0px 9px rgba(0,0,0,.8);
   color: white;
